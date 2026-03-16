@@ -15,10 +15,14 @@
 @endsection
 
 <div class="div-a">
-    @foreach($posts as $post)
+    @foreach($posts as $el)
         <div class="div-b">
-            <h5>{{$post->anons}}</h5>
-            <p>{{$post->title}}</p>
+            <h5>{{$el->title}}</h5>
+            <p>{{$el->anons}}</p>
+            <hr>
+            <p>
+                <a href="{{route('posts.one',$el->id)}}">Text Detalis</a>
+            </p>
         </div>
 
     @endforeach

@@ -65,3 +65,12 @@ php artisan make:controller BasicController
 php artisan make:request ContactRequest
 php artisan migrate:rollback --step=1 --ansi
 php artisan migrate
+
+# git hub update
+git status
+git add .
+git commit -m "Краткое и понятное описание внесенных изменений"
+git push
+
+
+
