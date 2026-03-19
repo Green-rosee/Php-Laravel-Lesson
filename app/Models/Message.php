@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property  $email string
  * @property  $subject string
  * @property  $text string
+ * @property $message string
  */
 class Message extends Model
 {

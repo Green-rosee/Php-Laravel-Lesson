@@ -21,7 +21,7 @@
             <p>{{$el->anons}}</p>
             <hr>
             <p>
-                <a href="{{route('posts.one',$el->id)}}">Text Detalis</a>
+                <a href="{{  route('posts.one',$el->id)  }}">Text Detalis</a>
             </p>
         </div>
 

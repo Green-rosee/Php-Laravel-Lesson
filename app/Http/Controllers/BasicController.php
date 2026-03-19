@@ -3,29 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
+use App\Mail\ContactMail;
 use App\Models\Message;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class BasicController extends Controller
 {
-    public function index():View
+    public function index(): View
     {
         return view('static.home');
     }
 
-    public function about():View
+    public function about(): View
     {
         return view('static.about');
     }
 
-    public function contact():View
+    public function contact(): View
     {
         return view('static.contact');
     }
 
-    public function submit(ContactRequest $request):RedirectResponse
+    public function submit(ContactRequest $request): RedirectResponse
     {
         // проверка введеных данных с формы при событии кнопки
         //$request->validated();
@@ -37,6 +39,8 @@ class BasicController extends Controller
         $message->subject = $request->input('subject');
         $message->text = $request->input('message');
         $message->save();
+        //**************************
+        Mail::to('admin@alex.com')->send(new ContactMail($message));
 
         return redirect()->route('home');
 
