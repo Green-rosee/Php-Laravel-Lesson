@@ -10,10 +10,11 @@ class PostController extends Controller
 {
     public function index(): View
     {
-        /*$posts = new Post();
-        $posts->title = 'Open Description';
-        $posts->anons = 'Open is Theme';
-        $posts->text = 'Open Legacy';
+        /*
+        $posts = new Post();
+        $posts->title = 'Factory Apple';
+        $posts->anons = 'Advanced smartphone technologies';
+        $posts->text = 'For the entire world';
         $posts->save();*/
 
         //$posts = Post::all();

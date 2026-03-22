@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BasicController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
@@ -58,3 +59,19 @@ Route::post('/posts{id}/edit', [PostController::class, 'update'])->name('posts.e
  *
  * */
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
+/*
+ *--------------------------
+ */
+Route::view('/welcome', 'welcome');
+/*
+ * -------------------------
+ */
+Route::view('/user', 'user')->name('user');
+Route::view('/dashboard', 'dashboard')->middleware('auth')->name('dashboard');
+
+/*
+ * роутер регистрации
+ */
+Route::get('/register', [RegisterController::class,'create'])->middleware('guest')
+    ->name('register');
+Route::post('/register', [RegisterController::class,'store'])->middleware('guest');
